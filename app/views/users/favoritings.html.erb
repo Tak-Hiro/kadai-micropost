@@ -1,0 +1,17 @@
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @micropost.name %></h3>
+      </div>
+    </div>
+    <%= render 'favorites/favoriting_button', micropost: @micropost %>
+  </aside>
+  <div class="col-xs-8">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= 'active' if current_page?(micropost_path(@micropost)) %>"><%= link_to user_path(@micropost) do %>Microposts <span class="badge"><%= @count_microposts %></span><% end %></li>
+      <li class="<%= 'active' if current_page?(favoritings_path(@micropost)) %>"><%= link_to favoritings_path(@micropost) do %>Favoritings <span class="badge"><%= @count_favoritings %></span><% end %></li>
+    </ul>
+    <%= render 'microposts', microposts: @favoritings %>
+  </div>
+</div>
