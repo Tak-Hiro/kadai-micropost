@@ -46,6 +46,6 @@ class User < ApplicationRecord
   end
   
   def favoriting?(micropost)
-    self.favoritings.include?(micropost.id)
+    self.favoritings.include?(micropost)
   end
 end
